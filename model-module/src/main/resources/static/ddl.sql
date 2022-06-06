@@ -1,0 +1,11 @@
+CREATE TABLE PRODUCT
+(
+    ID                 BIGSERIAL      NOT NULL PRIMARY KEY,
+    TITLE              VARCHAR(255)   NOT NULL,
+    SALES              DECIMAL(10, 2) NOT NULL,
+    REVENUE            DECIMAL(10, 2) NOT NULL,
+    MARGIN_RATE        DECIMAL(10, 2) NOT NULL,
+
+    UNIQUE (TITLE)
+);
+
