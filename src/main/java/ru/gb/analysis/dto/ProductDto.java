@@ -1,28 +1,17 @@
 package ru.gb.analysis.dto;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.*;
+import ru.gb.analysis.factory.BaseProduct;
 
 import java.math.BigDecimal;
 
 
-@Getter
-@Setter
-@NoArgsConstructor
-@AllArgsConstructor
+//@Getter
+//@Setter
+//@NoArgsConstructor
+//@AllArgsConstructor
 //@Builder
-public class ProductDto {
-
-
-    private Long id;
-
-    private String title;
-
-    private BigDecimal sales;
-
-    private BigDecimal revenue;
-
-    private BigDecimal marginRate;
+public class ProductDto extends BaseProduct {
 
 
 

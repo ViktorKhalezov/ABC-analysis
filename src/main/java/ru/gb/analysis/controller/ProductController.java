@@ -8,6 +8,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import ru.gb.analysis.dto.ProductWithCategoriesBuilder;
 import ru.gb.analysis.service.ProductGateway;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -115,12 +116,13 @@ public class ProductController {
     }
 
     private ProductWithCategories mapProductDtoToProductWithCategories(ProductDto productDto) {
-        ProductWithCategories productWithCategories = new ProductWithCategories();
-        productWithCategories.setId(productDto.getId());
-        productWithCategories.setTitle(productDto.getTitle());
-        productWithCategories.setSales(productDto.getSales());
-        productWithCategories.setRevenue(productDto.getRevenue());
-        productWithCategories.setMarginRate(productDto.getMarginRate());
+        ProductWithCategories productWithCategories = new ProductWithCategoriesBuilder()
+                .id(productDto.getId())
+                .title(productDto.getTitle())
+                .sales(productDto.getSales())
+                .revenue(productDto.getRevenue())
+                .marginRate(productDto.getMarginRate())
+                .build();
         return productWithCategories;
     }
 
