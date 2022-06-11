@@ -8,6 +8,7 @@ import org.springframework.transaction.annotation.Transactional;
 import ru.gb.modelmodule.dao.ProductDao;
 import ru.gb.modelmodule.dto.ProductDto;
 import ru.gb.modelmodule.entity.Product;
+import ru.gb.modelmodule.facade.InterfaceFacade;
 import ru.gb.modelmodule.mapper.ProductMapper;
 
 import java.util.List;
@@ -17,29 +18,20 @@ import java.util.stream.Collectors;
 @RequiredArgsConstructor
 public class ProductService {
 
-    private final ProductDao productDao;
 
-    private final ProductMapper productMapper;
+    private final InterfaceFacade interfaceFacade;
 
-    @Transactional(readOnly = true)
-    public List<ProductDto> findAll() {
-        return productDao.findAll().stream().map(productMapper::toProductDto).collect(Collectors.toList());
+    public List<ProductDto> getProducts() {
+        return interfaceFacade.findAll();
     }
 
-    @Transactional
+
     public ProductDto save(ProductDto productDto) {
-        Product product = productMapper.toProduct(productDto);
-        return productMapper.toProductDto(productDao.save(product));
+        return interfaceFacade.save(productDto);
     }
 
-
-    public void deleteById(Long id) {
-        try {
-            productDao.deleteById(id);
-        } catch (EmptyResultDataAccessException e) {
-            e.printStackTrace();
-        }
-
+    public void delete(Long id) {
+        interfaceFacade.deleteById(id);
     }
 
 }
