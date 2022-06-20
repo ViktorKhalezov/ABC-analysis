@@ -8,7 +8,7 @@ import ru.gb.modelmodule.mapper.ProductDtoMapper;
 
 import java.util.*;
 
-
+// Model
 @RequiredArgsConstructor
 @Component
 public class UnitOfWork {

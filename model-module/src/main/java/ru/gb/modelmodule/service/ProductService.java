@@ -15,6 +15,7 @@ import ru.gb.modelmodule.unitOfWork.UnitOfWork;
 import java.util.List;
 import java.util.stream.Collectors;
 
+// Model
 @Service
 @RequiredArgsConstructor
 public class ProductService {
