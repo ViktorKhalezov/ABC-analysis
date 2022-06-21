@@ -11,6 +11,7 @@ import java.math.BigDecimal;
 @Builder
 @Entity
 @Table(name = "product")
+// Антипаттерн "Полтергейст" - после того, как прилжожение было перенесено с JPA на JDBC данный код стал не нужен (он нигде больше не используется)
 public class Product {
 
     @Id

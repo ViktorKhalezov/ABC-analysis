@@ -17,6 +17,7 @@ import java.util.stream.Collectors;
 @Component
 public class ProductDtoMapper {
 
+// Антипаттерн "Жесткое кодирование" - свойства БД можно подгружать из файла application.properties
     private final String URL = "jdbc:postgresql://localhost:5432/abc_analysis";
     private final String USER = "geek";
     private final String PASSWORD = "geek";
@@ -31,7 +32,8 @@ public class ProductDtoMapper {
         }
     }
 
-
+/* Антипаттерн "Слепая вера" или "Фактор невероятности" - метод может выбросить null при некорректных входных данных,
+ необходимо использовать в методе класс Optional<ProductDto> */
     public ProductDto findById(long id) {
         ProductDto productDto = null;
         try {

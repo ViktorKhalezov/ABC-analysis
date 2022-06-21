@@ -11,6 +11,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
+// Антипаттерн "Полтергейст" - в процессе создания данный класс не понадобился, оказалось, что во View можно направлять сразу ArrayList.
 public class AnalysisTable {
 
     private List<ProductWithCategories> productsWithCategories;
