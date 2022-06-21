@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 
 @RequiredArgsConstructor
 @Component
+// Антипаттерн "Полтергейст" - после того, как прилжожение было перенесено с JPA на JDBC данный код стал не нужен (он нигде больше не используется)
 public class InterfaceFacade {
 
     private final ProductDao productDao;
